@@ -4,52 +4,82 @@
   <br/>
   <br/>
 
-  <h1>🎯 Accredian Enterprise Clone</h1>
+  <h1>Accredian Enterprise Clone</h1>
   
   <p>
-    <b>A pixel-perfect, highly performant, and responsive enterprise landing page clone.</b><br/>
-    Built for speed, scalability, and seamless user experience.
+    A responsive enterprise landing page clone built with Next.js and Tailwind CSS.
   </p>
 
   <p>
     <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js" alt="Next.js" /></a>
     <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
     <a href="https://www.mongodb.com/"><img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" /></a>
-    <a href="https://react-hook-form.com/"><img src="https://img.shields.io/badge/React_Hook_Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white" alt="React Hook Form" /></a>
   </p>
 
   <br/>
 </div>
 
----
+## Live Demo
 
-## 🚀 Live Demo & Links
-
-> **Reference URL:** [https://enterprise.accredian.com/](https://enterprise.accredian.com/)
-
-- 🌐 **Live Deployment**: `[Insert Your Vercel Link Here]`
-- 🐙 **GitHub Repository**: `[Insert Your GitHub Repo Link Here]`
+- **Live URL:** `[Insert Your Vercel Link Here]`
+- **Repository:** `[Insert Your GitHub Repo Link Here]`
+- **Reference:** [https://enterprise.accredian.com/](https://enterprise.accredian.com/)
 
 ---
 
-## 🛠️ Setup & Installation
+## Features
 
-Get the project running locally in less than 2 minutes.
+- Responsive Landing Page
+- Reusable UI Components
+- Smooth Section Navigation
+- API Integration for Lead Capture
+- Form Validation (Client & Server)
+- Optimized Images
+- SEO Metadata
+- Error Handling
+- Mobile-First Design
 
-### 1. Clone & Install
-```bash
-# Clone the repository
-git clone [Your-Repo-Link]
+---
 
-# Navigate into the directory
-cd accredian-clone
+## Tech Stack
 
-# Install dependencies
-npm install
-```
+| Category | Technology |
+|----------|------------|
+| Framework | Next.js 15 |
+| Language | JavaScript |
+| Styling | Tailwind CSS |
+| Routing | App Router |
+| Forms | React Hook Form |
+| Validation | Zod |
+| Database | MongoDB Atlas |
+| Deployment | Vercel |
 
-### 2. Environment Variables
-Create a `.env.local` file in the root of your project and configure the following keys:
+---
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [Your-Repo-Link]
+   cd accredian-clone
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## Environment Variables
+
+Create a `.env.local` file in the root of your project and configure the following:
+
 ```env
 # Database Connection (MongoDB Atlas)
 MONGODB_URI=your_mongodb_atlas_connection_string
@@ -59,101 +89,127 @@ EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_gmail_app_password
 ```
 
-### 3. Run Development Server
-```bash
-npm run dev
-```
-Navigate to `http://localhost:3000` to view the application.
-
 ---
 
-## 📂 Project Architecture
-
-This project strictly follows the scalable **Next.js App Router** architecture.
-
-<details>
-<summary><b>Click to expand the full folder structure</b></summary>
-<br/>
+## Folder Structure
 
 ```text
-accredian-clone/
-├── src/
-│   ├── app/                  # App Router (Pages, Layouts, API Routes)
-│   │   ├── api/enquire/      # ⚙️ Backend API Route for Lead Capture
-│   │   ├── globals.css       # 🎨 Global Tailwind styling
-│   │   ├── layout.jsx        # 📄 Root HTML layout & SEO Metadata
-│   │   └── page.jsx          # 🏠 Main landing page
-│   │
-│   ├── components/           # Domain-Specific & Layout Components
-│   │   ├── ui/               # 🧩 Primitive / Atomic UI Components
-│   │   │   ├── Button.jsx        
-│   │   │   └── SectionHeader.jsx 
-│   │   ├── AccredianEdge.jsx # Major section component
-│   │   ├── CATFramework.jsx  # Major section component
-│   │   ├── EnquireModal.jsx  # Complex form modal component
-│   │   └── ... 
-│   │
-│   ├── constants/            # Data Layer
-│   │   └── index.js          # Static arrays (FAQs, Testimonials, Courses)
-│   │
-│   ├── lib/                  # Utility functions
-│   │   └── mongodb.js        # Mongoose connection pooling
-│   │
-│   └── models/               # Database Schemas
-│       └── Lead.js           # Mongoose schema for the form
+src
+│
+├── app
+│   ├── api/enquire    # API Route
+│   ├── globals.css    # Global styles
+│   ├── layout.jsx     # Root layout & SEO
+│   └── page.jsx       # Main landing page
+│
+├── components
+│   ├── ui             # Reusable primitive components (Button, SectionHeader)
+│   └── ...            # Domain-specific section components
+│
+├── constants
+│   └── index.js       # Static data (FAQs, Courses, Testimonials)
+│
+├── lib
+│   └── mongodb.js     # Database connection pooling
+│
+└── models
+    └── Lead.js        # Mongoose schema
 ```
-</details>
-
-### 🧩 Why `components/ui/`? (Atomic Design)
-You will notice that `Button.jsx` and `SectionHeader.jsx` are placed inside a dedicated `ui/` subdirectory. This strictly follows the **Atomic Design Principle** (popularized by modern libraries like *shadcn/ui*):
-- **`components/`**: Contains "Macro" or domain-specific chunks (e.g., `Hero`, `Navbar`, `FAQs`).
-- **`components/ui/`**: Contains "Micro" or primitive components that are purely generic, stateless, and reusable across the entire application (e.g., a generic `Button`). This keeps the repository highly organized as the application scales.
 
 ---
 
-## 🧠 Approach Taken
+## Design Decisions
 
-### 1. Component Modularity & Data Separation
-I focused heavily on creating DRY (Don't Repeat Yourself) code. Rather than duplicating header layouts across 8+ sections, I engineered a highly flexible `<SectionHeader />` component. 
-
-Furthermore, I strictly separated the **Data Layer** from the **UI Layer**. All static content arrays (`FAQS`, `TESTIMONIALS`) were extracted into `src/constants/index.js`. The UI components now strictly handle rendering logic, while the constants act as a single source of truth.
-
-### 2. Mobile-First & CSS Native Behaviors
-The original site relied heavily on bulky JavaScript libraries for carousels. To maximize performance and **Core Web Vitals**, I replaced these with **CSS Native Snap Scrolling** (`snap-x`, `snap-mandatory`). This provides the exact same UX (smooth mobile swiping) but with zero JavaScript parsing overhead.
-
-### ⭐ 3. Bonus Feature: Full-Stack Lead Capture & Email Automation
-I exceeded the baseline requirements by implementing a highly resilient Lead Capture system natively in Next.js using Route Handlers (`/api/enquire`).
-- **Validation**: Strict client/server validation using **Zod** and `react-phone-input-2`.
-- **Database**: Securely stores leads in a **MongoDB Atlas** cloud cluster.
-- **Email Automation**: Instantly dispatches a personalized HTML welcome email to the user via **Nodemailer**.
-- **Global Event Dispatching**: The `<Button />` component uses native `window.dispatchEvent` to globally trigger the lead modal without prop-drilling or bulky React Context providers.
+- Used reusable components (like `<SectionHeader />`) to reduce duplicate code.
+- Stored static content arrays separately from the UI layer.
+- Built the layout using a mobile-first approach.
+- Optimized image loading using the native HTML `<img>` tag and Next.js `<Image />` where appropriate.
+- Used native CSS snap-scrolling instead of heavy JavaScript carousel libraries to improve performance.
 
 ---
 
-## 🤖 AI Usage Explanation
+## API Documentation
 
-As per the assignment requirements, AI tools were utilized to accelerate development while maintaining strict architectural control.
+### POST `/api/enquire`
 
-#### ✅ Where AI Helped:
-- **Asset & Boilerplate Extraction**: Quickly scraped raw text content, SVG links, and core Tailwind hex codes from the reference site.
-- **Data Structuring**: Rapidly mapped raw unstructured FAQ and Testimonial text into clean JSON arrays for the constants file.
-- **Regex & Zod Boilerplate**: Generated the base Zod schema for standardizing international phone number validation.
-- **Nodemailer Setup**: Generated the basic SMTP configuration object and HTML wrapper for the automated email.
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@gmail.com",
+  "phone": "+91 9999999999",
+  "company": "Tech Corp",
+  "jobTitle": "Developer",
+  "experience": "5",
+  "goal": "Upskilling",
+  "state": "Maharashtra, India"
+}
+```
 
-#### 🛠️ What I Modified & Engineered Manually:
-- **Component Architecture**: I manually broke down the monolithic page into modular chunks and specifically engineered the global `SectionHeader` and `Button` systems using Atomic Design.
-- **Responsive Layout Tweaks**: I manually rewrote the mobile CSS grid systems (`grid-cols-1 md:grid-cols-2 lg:grid-cols-3`) and fixed complex `z-index` layering issues (specifically fixing the phone dropdown overlapping).
-- **TypeScript to JavaScript Conversion**: Manually stripped down unnecessary TS interfaces to plain JS to maintain a cleaner, simpler codebase focused purely on execution.
-- **Performance Optimizations**: I manually stripped out unnecessary `framer-motion` layout animations, prioritizing CSS-native transitions and Next.js `<Image />` optimization to prevent CLS (Cumulative Layout Shift).
+**Response:**
+```json
+{
+  "message": "Lead submitted successfully and email sent."
+}
+```
 
 ---
 
-## 📈 Improvements with More Time
+## AI Usage
 
-If given an additional 48 hours, I would implement the following enterprise-grade improvements:
+### AI Tools Used
+- ChatGPT
+- Antigravity
 
-1. **State Management**: Integrate a lightweight global store (like *Zustand*) to handle modal states, which scales better than `window.dispatchEvent`.
-2. **Rate Limiting**: Add `@upstash/ratelimit` (Redis) to the `/api/enquire` route to prevent spam bots from flooding the MongoDB cluster and Email SMTP.
-3. **Skeleton Loaders**: Implement React Suspense boundaries and Skeleton loaders for the testimonial cards to improve perceived load times.
-4. **End-to-End Testing**: Write a *Cypress* or *Playwright* test suite simulating a user navigating the landing page, opening the modal, and submitting a lead.
-5. **Dark Mode**: Configure Tailwind's `dark:` modifier variants to support a seamless system-wide dark mode.
+### Where AI Helped
+- Planning folder structure and architecture.
+- Extracting raw text content, SVG links, and core color codes from the reference site.
+- Converting unstructured text into clean JSON arrays.
+- Generating boilerplate Zod schemas for validation.
+- Generating basic Nodemailer SMTP configuration.
+
+### Manual Work
+- Breaking down the monolithic page into modular React components.
+- Designing and implementing the reusable `<SectionHeader />` and `<Button />` systems.
+- Refining responsive layouts and fixing mobile CSS grid structures.
+- Fixing complex z-index layering issues with absolute positioned dropdowns.
+- Optimizing performance by prioritizing CSS-native transitions over JS animation libraries.
+
+---
+
+## Challenges
+
+### Responsive Layout
+The reference website uses multiple nested layouts that required significant restructuring to look clean on mobile devices without horizontal scrolling.
+
+### Component Reusability
+Instead of repeating similar section layouts across 8 different sections, identifying the common patterns and extracting them into reusable UI components took careful planning.
+
+### Form Validation & State Management
+Managing complex form state with nested dropdowns (like the phone country code selector) and ensuring strict Zod validation on both the client and server.
+
+---
+
+## Future Improvements
+
+- Dark Mode implementation.
+- Unit and E2E Testing (Playwright).
+- Better Accessibility (ARIA labels and keyboard navigation).
+- Global State Management (Zustand) to replace native event dispatching for the modal.
+- API Rate Limiting to prevent spam submissions.
+
+---
+
+## Author
+
+**Himmat Mundhe**
+
+- GitHub: `[Your GitHub Link]`
+- LinkedIn: `[Your LinkedIn Link]`
+- Email: himmatmundhe0@gmail.com
+
+---
+
+## License
+
+This project was created solely for the Accredian internship assignment. It is not intended for commercial use.
