@@ -57,10 +57,9 @@ export async function POST(req) {
         `,
       };
 
-      // We don't await this to avoid slowing down the user's UI response, 
-      // but you can await it if you want strict error handling.
-      transporter.sendMail(mailOptions).catch(err => console.error("Email send error:", err));
-      
+      // Await is REQUIRED on Vercel Serverless Functions otherwise the process is killed before the email sends
+      await transporter.sendMail(mailOptions);
+
     } catch (emailError) {
       console.error("Failed to setup email:", emailError);
     }
